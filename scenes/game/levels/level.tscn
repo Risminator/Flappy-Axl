@@ -1,17 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwqhucdjsst14"]
+[gd_scene load_steps=7 format=3 uid="uid://cwqhucdjsst14"]
 
+[ext_resource type="Texture2D" uid="uid://djbcabvr4ojql" path="res://assets/background.png" id="1_t2d5r"]
 [ext_resource type="Texture2D" uid="uid://d2x1n5vrj5ayq" path="res://meme.jpeg" id="3_1t3gq"]
+[ext_resource type="Script" path="res://scenes/game/entities/Spawner.gd" id="3_kq1a1"]
+[ext_resource type="Script" path="res://scenes/game/entities/PipeCleaner.gd" id="4_7mkwa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4au21"]
 size = Vector2(1165, 126)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnmsg"]
+size = Vector2(163, 659.5)
+
 [node name="Level" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_t2d5r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(1, 299)
-collision_layer = 2
+collision_layer = 4
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor"]
@@ -25,7 +34,7 @@ shape = SubResource("RectangleShape2D_4au21")
 
 [node name="Roof" type="StaticBody2D" parent="."]
 position = Vector2(3, -614)
-collision_layer = 2
+collision_layer = 4
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Roof"]
@@ -36,3 +45,19 @@ texture = ExtResource("3_1t3gq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
 position = Vector2(0.5, 64)
 shape = SubResource("RectangleShape2D_4au21")
+
+[node name="Spawner" type="Marker2D" parent="."]
+position = Vector2(721, 0)
+script = ExtResource("3_kq1a1")
+
+[node name="PipeCleaner" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("4_7mkwa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeCleaner"]
+position = Vector2(-775, -26)
+shape = SubResource("RectangleShape2D_tnmsg")
+
+[connection signal="body_entered" from="PipeCleaner" to="PipeCleaner" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="PipeCleaner" to="PipeCleaner" method="_on_body_shape_entered"]

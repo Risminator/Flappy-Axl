@@ -5,7 +5,7 @@
 
 [node name="World" type="Node2D"]
 
+[node name="Level" parent="." instance=ExtResource("2_cjksc")]
+
 [node name="Player" parent="." instance=ExtResource("1_yp5pi")]
 position = Vector2(-282, 0)
-
-[node name="Level" parent="." instance=ExtResource("2_cjksc")]
