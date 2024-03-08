@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwqhucdjsst14"]
+
+[ext_resource type="Texture2D" uid="uid://d2x1n5vrj5ayq" path="res://meme.jpeg" id="3_1t3gq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4au21"]
+size = Vector2(1165, 126)
+
+[node name="Level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(1, 299)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(0, 63.5)
+scale = Vector2(1.26638, 0.233397)
+texture = ExtResource("3_1t3gq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0.5, 64)
+shape = SubResource("RectangleShape2D_4au21")
+
+[node name="Roof" type="StaticBody2D" parent="."]
+position = Vector2(3, -614)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Roof"]
+position = Vector2(0, 63.5)
+scale = Vector2(1.26638, 0.233397)
+texture = ExtResource("3_1t3gq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
+position = Vector2(0.5, 64)
+shape = SubResource("RectangleShape2D_4au21")

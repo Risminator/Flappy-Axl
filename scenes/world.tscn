@@ -1,55 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwqhucdjsst14"]
+[gd_scene load_steps=3 format=3 uid="uid://cxp7ypspbbssj"]
 
-[ext_resource type="Script" path="res://scenes/game/Player.gd" id="1_8ffhe"]
-[ext_resource type="Texture2D" uid="uid://s34wny7gm5qs" path="res://aseets/char.png" id="2_vk34o"]
-[ext_resource type="Texture2D" uid="uid://d2x1n5vrj5ayq" path="res://meme.jpeg" id="3_1t3gq"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rg8ku"]
-radius = 26.0
-height = 94.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4au21"]
-size = Vector2(1165, 126)
+[ext_resource type="PackedScene" uid="uid://drsbxtif50n3q" path="res://scenes/game/player.tscn" id="1_yp5pi"]
+[ext_resource type="PackedScene" uid="uid://cwqhucdjsst14" path="res://scenes/game/level.tscn" id="2_cjksc"]
 
 [node name="World" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-286, 0)
-script = ExtResource("1_8ffhe")
-metadata/_edit_group_ = true
+[node name="Player" parent="." instance=ExtResource("1_yp5pi")]
+position = Vector2(-282, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_vk34o")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_rg8ku")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(1, 299)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor"]
-position = Vector2(0, 63.5)
-scale = Vector2(1.26638, 0.233397)
-texture = ExtResource("3_1t3gq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(0.5, 64)
-shape = SubResource("RectangleShape2D_4au21")
-
-[node name="Roof" type="StaticBody2D" parent="."]
-position = Vector2(3, -614)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Roof"]
-position = Vector2(0, 63.5)
-scale = Vector2(1.26638, 0.233397)
-texture = ExtResource("3_1t3gq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
-position = Vector2(0.5, 64)
-shape = SubResource("RectangleShape2D_4au21")
+[node name="Level" parent="." instance=ExtResource("2_cjksc")]
