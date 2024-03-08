@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c86s2o35owxb0"]
+
+[ext_resource type="Script" path="res://scenes/game/entities/Blocks.gd" id="1_wqrdm"]
+[ext_resource type="Texture2D" uid="uid://cuhr33ovut3tc" path="res://assets/blocks.png" id="2_lieo7"]
+
+[node name="Blocks" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_wqrdm")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.434722, 0.434722)
+texture = ExtResource("2_lieo7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-56.2, 29.4)
+polygon = PackedVector2Array(65.2, 47.6, 92, 211, 88.2, 380.6, 20.2, 381.6, 21, 263, 43, 242, 33, 199, 44, 164, 34, 117, 57.2, 47.6)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(-57.2, -32.6)
+rotation = -3.14159
+polygon = PackedVector2Array(-65.1999, 46.4002, -95, 211, -88, 377, -19, 379, -21, 263, -43, 242, -33, 199, -44, 164, -36.2, 118.4, -57.1999, 46.4001)

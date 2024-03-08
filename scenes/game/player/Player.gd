@@ -22,3 +22,6 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 
 	move_and_slide()
+
+func get_hit():
+	queue_free()

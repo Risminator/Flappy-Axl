@@ -11,6 +11,7 @@ size = Vector2(1165, 126)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(1, 299)
+collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor"]
@@ -24,6 +25,7 @@ shape = SubResource("RectangleShape2D_4au21")
 
 [node name="Roof" type="StaticBody2D" parent="."]
 position = Vector2(3, -614)
+collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Roof"]
