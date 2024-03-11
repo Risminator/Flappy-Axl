@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://d22ko2lgnkh0u"]
+
+[ext_resource type="Texture2D" uid="uid://djbcabvr4ojql" path="res://assets/background.png" id="1_uec52"]
+[ext_resource type="Texture2D" uid="uid://cpnfwvllmyy1u" path="res://assets/clouds.png" id="2_60p67"]
+[ext_resource type="Texture2D" uid="uid://bji7o0dkymb4v" path="res://assets/castle.png" id="3_kiwhy"]
+[ext_resource type="Texture2D" uid="uid://b0vahl8p4cu4x" path="res://assets/mashrooms.png" id="4_nqp08"]
+[ext_resource type="Texture2D" uid="uid://8vpbh8q0colu" path="res://assets/ground.png" id="5_w461j"]
+
+[sub_resource type="GDScript" id="GDScript_xdq75"]
+script/source = "extends ParallaxBackground
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	scroll_offset.x -= 100*delta
+"
+
+[node name="bg" type="ParallaxBackground"]
+script = SubResource("GDScript_xdq75")
+
+[node name="background" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="background"]
+texture = ExtResource("1_uec52")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="clouds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.2, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="clouds"]
+position = Vector2(0, 540)
+texture = ExtResource("2_60p67")
+centered = false
+
+[node name="castle" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.5, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="castle"]
+position = Vector2(0, 164)
+texture = ExtResource("3_kiwhy")
+centered = false
+
+[node name="mashrooms" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(2, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="mashrooms"]
+position = Vector2(0, 928)
+texture = ExtResource("4_nqp08")
+centered = false
+
+[node name="ground" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(2, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ground"]
+position = Vector2(0, 1044)
+texture = ExtResource("5_w461j")
+centered = false
