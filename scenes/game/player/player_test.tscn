@@ -9,8 +9,8 @@ radius = 22.0
 height = 64.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gjet5"]
-radius = 20.0
-height = 56.0
+radius = 11.0
+height = 52.0
 
 [node name="Player" type="Node2D"]
 position = Vector2(118, 118)
@@ -31,6 +31,9 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_m605p")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 1.5
+linear_damp = 1000.0
+angular_damp = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 z_index = -1
@@ -39,16 +42,15 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_uxune")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(-25, -2)
+position = Vector2(-34, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_gjet5")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(-21, 0)
+position = Vector2(-6, -3)
 node_a = NodePath("../RigidBody2D")
 node_b = NodePath("../CharacterBody2D")
 bias = 0.325
-softness = 2.03
 angular_limit_enabled = true
-angular_limit_lower = -0.523599
-angular_limit_upper = 0.523599
+angular_limit_lower = -0.261799
+angular_limit_upper = 0.261799
