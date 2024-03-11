@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwxi0itibj16x"]
+
+[ext_resource type="Texture2D" uid="uid://b27lqiq15362g" path="res://assets/head.png" id="1_m605p"]
+[ext_resource type="Script" path="res://scenes/game/player/Player.gd" id="1_n0eaq"]
+[ext_resource type="Texture2D" uid="uid://bsebup873jonf" path="res://assets/tail.png" id="2_uxune"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_exj48"]
+radius = 22.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gjet5"]
+radius = 20.0
+height = 56.0
+
+[node name="Player" type="Node2D"]
+position = Vector2(118, 118)
+metadata/_edit_group_ = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(4, -3)
+script = ExtResource("1_n0eaq")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_exj48")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D"]
+rotation = 4.71239
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_m605p")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+z_index = -1
+position = Vector2(-15, -2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_uxune")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-25, -2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gjet5")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(-21, 0)
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../CharacterBody2D")
+bias = 0.325
+softness = 2.03
+angular_limit_enabled = true
+angular_limit_lower = -0.523599
+angular_limit_upper = 0.523599
