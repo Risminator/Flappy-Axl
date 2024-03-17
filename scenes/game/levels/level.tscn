@@ -19,6 +19,7 @@ texture = ExtResource("1_t2d5r")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Floor" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(1, 299)
 collision_layer = 4
 metadata/_edit_group_ = true
@@ -33,6 +34,7 @@ position = Vector2(0.5, 64)
 shape = SubResource("RectangleShape2D_4au21")
 
 [node name="Roof" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(3, -614)
 collision_layer = 4
 metadata/_edit_group_ = true

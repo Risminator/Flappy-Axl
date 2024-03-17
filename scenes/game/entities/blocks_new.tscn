@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://0noypkn768m7"]
+
+[ext_resource type="Texture2D" uid="uid://cva2bk4sw2s5a" path="res://assets/up.png" id="1_ajqj5"]
+[ext_resource type="Texture2D" uid="uid://chuaavqviitbp" path="res://assets/down.png" id="2_i31a7"]
+
+[sub_resource type="GDScript" id="GDScript_x3cxo"]
+script/source = "@tool
+extends CharacterBody2D
+
+@export var speed:float = 200
+
+@export var offset:float:
+	set(new_offset):
+		var up = get_node(\"CollisionPolygon2D2\")
+		if up != null:
+			up.position.y = -new_offset
+		var down = get_node(\"CollisionPolygon2D\")
+		if down != null:
+			down.position.y = new_offset
+
+
+func _physics_process(delta):
+	if not Engine.is_editor_hint():
+		velocity = Vector2(-speed, 0)
+		move_and_slide()
+	#var collision_count = get_slide_collision_count()
+	#for i in collision_count:
+		#var collision_info = get_slide_collision(i)
+		#var collider = collision_info.get_collider()
+		#print(collision_count)
+		#print(collider)
+		#
+		#if collider.has_method(\"get_hit\"):
+			#collider.get_hit()
+	
+	#var velocity = Vector2(-speed, 0)
+	#var collision = move_and_collide(velocity * delta)
+		#
+	#if collision:
+		#var collider = collision.get_collider()
+		#print(\"I collided with \", collider.name)
+		#if collider.has_method(\"get_hit\"):
+			#collider.get_hit()
+"
+
+[node name="Blocks" type="CharacterBody2D"]
+scale = Vector2(0.7, 0.7)
+collision_layer = 2
+collision_mask = 8
+script = SubResource("GDScript_x3cxo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 500)
+polygon = PackedVector2Array(-48, 385, -90, 312, -79, 169, -62, 91, -25, 79, -53, -9, -43, -81, -1, -120, -48, -210, -3, -287, -12, -362, 10, -381, 23, -376, 17, -349, 26, -304, 45, -240, 31, -203, 54, -133, 70, -73, 73, 43, 65, 128, 54, 237, 79, 300, 69, 385)
+
+[node name="Down" type="Sprite2D" parent="CollisionPolygon2D"]
+position = Vector2(0, 1.705)
+scale = Vector2(1, 1)
+texture = ExtResource("2_i31a7")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -500)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+polygon = PackedVector2Array(-48, 385, -90, 312, -79, 169, -62, 91, -25, 79, -53, -9, -43, -81, -1, -120, -48, -210, -3, -287, -12, -362, 10, -381, 23, -376, 17, -349, 26, -304, 45, -240, 31, -203, 54, -133, 70, -73, 73, 43, 65, 128, 54, 237, 79, 300, 69, 385)
+
+[node name="Up" type="Sprite2D" parent="CollisionPolygon2D2"]
+scale = Vector2(1, -1)
+texture = ExtResource("1_ajqj5")
