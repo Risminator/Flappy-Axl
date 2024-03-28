@@ -21,7 +21,7 @@ texture = ExtResource("1_t2d5r")
 unique_name_in_owner = true
 visible = false
 position = Vector2(1, 299)
-collision_layer = 4
+collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor"]
@@ -35,7 +35,7 @@ shape = SubResource("RectangleShape2D_4au21")
 
 [node name="Roof" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(3, -921.37)
+position = Vector2(3, -1186.37)
 collision_layer = 4
 metadata/_edit_group_ = true
 
