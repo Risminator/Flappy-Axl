@@ -7,7 +7,7 @@
 script/source = "@tool
 extends CharacterBody2D
 
-@export var speed:float = 200
+@export var speed:float = 800
 
 @export var offset:float:
 	set(new_offset):
@@ -44,7 +44,6 @@ func _physics_process(delta):
 "
 
 [node name="Blocks" type="CharacterBody2D"]
-scale = Vector2(0.7, 0.7)
 collision_layer = 2
 collision_mask = 8
 script = SubResource("GDScript_x3cxo")
@@ -55,7 +54,6 @@ polygon = PackedVector2Array(-48, 385, -90, 312, -79, 169, -62, 91, -25, 79, -53
 
 [node name="Down" type="Sprite2D" parent="CollisionPolygon2D"]
 position = Vector2(0, 1.705)
-scale = Vector2(1, 1)
 texture = ExtResource("2_i31a7")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]

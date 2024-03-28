@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxp7ypspbbssj"]
+[gd_scene load_steps=4 format=3 uid="uid://cxp7ypspbbssj"]
 
 [ext_resource type="PackedScene" uid="uid://drsbxtif50n3q" path="res://scenes/game/player/player.tscn" id="1_yp5pi"]
 [ext_resource type="PackedScene" uid="uid://cwqhucdjsst14" path="res://scenes/game/levels/level.tscn" id="2_cjksc"]
+[ext_resource type="PackedScene" uid="uid://d22ko2lgnkh0u" path="res://scenes/game/levels/bgp.tscn" id="3_k7nss"]
 
 [node name="World" type="Node2D"]
 
-[node name="Level" parent="." instance=ExtResource("2_cjksc")]
-
 [node name="Player" parent="." instance=ExtResource("1_yp5pi")]
-position = Vector2(-282, 0)
+position = Vector2(316, 590)
+scale = Vector2(1.75, 1.75)
+
+[node name="Level" parent="." instance=ExtResource("2_cjksc")]
+position = Vector2(580, 746)
+
+[node name="bg" parent="." instance=ExtResource("3_k7nss")]

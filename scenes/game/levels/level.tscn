@@ -14,12 +14,12 @@ size = Vector2(163, 659.5)
 [node name="Level" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_t2d5r")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Floor" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(1, 299)
 collision_layer = 4
 metadata/_edit_group_ = true
@@ -35,7 +35,7 @@ shape = SubResource("RectangleShape2D_4au21")
 
 [node name="Roof" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(3, -614)
+position = Vector2(3, -921.37)
 collision_layer = 4
 metadata/_edit_group_ = true
 
@@ -49,7 +49,7 @@ position = Vector2(0.5, 64)
 shape = SubResource("RectangleShape2D_4au21")
 
 [node name="Spawner" type="Marker2D" parent="."]
-position = Vector2(721, 0)
+position = Vector2(2200, -200)
 script = ExtResource("3_kq1a1")
 
 [node name="PipeCleaner" type="Area2D" parent="."]

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -450.0
 const JUMP_TIME_INTERVAL = 500
 const MAX_DEGREE_TURN = 90 
 const MIN_DEGREE_TURN = -30

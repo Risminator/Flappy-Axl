@@ -21,6 +21,9 @@ func _process(delta):
 "
 
 [node name="bg" type="ParallaxBackground"]
+offset = Vector2(0, -112.935)
+scale = Vector2(1.1, 1.1)
+transform = Transform2D(1.1, 0, 0, 1.1, 0, -112.935)
 script = SubResource("GDScript_xdq75")
 
 [node name="background" type="ParallaxLayer" parent="."]
