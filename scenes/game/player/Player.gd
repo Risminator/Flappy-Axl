@@ -29,6 +29,7 @@ func _physics_process(delta):
 		jump_time = Time.get_ticks_msec()
 
 	move_and_slide()
-	var collision_count = get_slide_collision_count()
-	if collision_count >= 1:
-		queue_free()
+	for i in get_slide_collision_count():
+		var collider = get_slide_collision(i).get_collider()
+		if  collider.get_collision_layer() == 2:
+			queue_free()
