@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://0noypkn768m7"]
+[gd_scene load_steps=6 format=3 uid="uid://0noypkn768m7"]
 
 [ext_resource type="Texture2D" uid="uid://cva2bk4sw2s5a" path="res://assets/up.png" id="1_ajqj5"]
 [ext_resource type="Texture2D" uid="uid://chuaavqviitbp" path="res://assets/down.png" id="2_i31a7"]
+[ext_resource type="Script" path="res://scenes/game/entities/Scoring.gd" id="3_rj0iq"]
 
 [sub_resource type="GDScript" id="GDScript_x3cxo"]
 script/source = "@tool
@@ -43,6 +44,10 @@ func _physics_process(delta):
 			#collider.get_hit()
 "
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jtag"]
+radius = 9.0
+height = 266.0
+
 [node name="Blocks" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
@@ -65,3 +70,10 @@ polygon = PackedVector2Array(-48, 385, -90, 312, -79, 169, -62, 91, -25, 79, -53
 [node name="Up" type="Sprite2D" parent="CollisionPolygon2D2"]
 scale = Vector2(1, -1)
 texture = ExtResource("1_ajqj5")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_rj0iq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_1jtag")
