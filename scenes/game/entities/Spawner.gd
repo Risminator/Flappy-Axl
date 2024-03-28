@@ -22,11 +22,6 @@ func spawn():
 	new_y = min(%Floor.position.y-100, new_y)
 	new_y = max(%Roof.position.y+700, new_y)
 	
-	if i % 2 == 0:
-		new_y = %Floor.position.y-75
-	else:
-		new_y = %Roof.position.y+675
-	
 	new_pipe.position.y = new_y
 	new_pipe.speed = spawn_speed * kspeed
 	
@@ -39,7 +34,7 @@ func spawn():
 	if kspeed <= 2:
 		kspeed += i * 0.01
 	if ktime >= 0.3:
-		ktime -= i * 0.00075
+		ktime -= i * 0.0005
 		
 	#new_pipe.speed = 600
 	#spawn_interval_min = 1.2
