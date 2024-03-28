@@ -1,12 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpxles7kbwonw"]
+[gd_scene load_steps=3 format=3 uid="uid://dpxles7kbwonw"]
 
 [ext_resource type="Script" path="res://scenes/game/ui/Score.gd" id="1_sxtlk"]
+[ext_resource type="Theme" uid="uid://b3n1xppupr0l" path="res://scenes/game/ui/FlappyAxlTheme.tres" id="2_rsae0"]
 
 [node name="Ui" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -3.0
+offset_right = 7.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -14,4 +19,6 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 86.0
 offset_bottom = 38.0
+scale = Vector2(1, 2.84)
+theme = ExtResource("2_rsae0")
 script = ExtResource("1_sxtlk")
