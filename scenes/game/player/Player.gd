@@ -27,6 +27,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		rotation_degrees = MIN_DEGREE_TURN
 		jump_time = Time.get_ticks_msec()
+		$AnimationHop.play("hop")
 
 	move_and_slide()
 	var collision_count = get_slide_collision_count()

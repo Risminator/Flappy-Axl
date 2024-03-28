@@ -1,21 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://drsbxtif50n3q"]
+[gd_scene load_steps=7 format=3 uid="uid://drsbxtif50n3q"]
 
 [ext_resource type="Script" path="res://scenes/game/player/Player.gd" id="1_mg5v5"]
-[ext_resource type="Texture2D" uid="uid://csdpe1idg3u0y" path="res://assets/char.png" id="2_7a1mt"]
+[ext_resource type="Texture2D" uid="uid://cnhtffbb3nnt2" path="res://assets/axl.png" id="2_2wlg5"]
+[ext_resource type="Texture2D" uid="uid://bsebup873jonf" path="res://assets/tail.png" id="2_uca0g"]
+
+[sub_resource type="Animation" id="Animation_8ij80"]
+resource_name = "hop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2cmn"]
+_data = {
+"hop": SubResource("Animation_8ij80")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_feqxm"]
-radius = 26.0
-height = 94.0
+radius = 24.23
+height = 74.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 script = ExtResource("1_mg5v5")
 metadata/_edit_group_ = true
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-15.905, -1.645)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_uca0g")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_7a1mt")
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_2wlg5")
+hframes = 2
+vframes = 2
+
+[node name="AnimationHop" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n2cmn")
+}
+speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6.23)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_feqxm")
