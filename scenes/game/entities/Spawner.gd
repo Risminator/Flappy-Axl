@@ -5,6 +5,9 @@ extends Marker2D
 @export var spawn_speed:float = 300
 @export var vertical_interval_max:float = 500
 
+var floor_offset = -100
+var roof_offset = 965
+
 var previous_pipe_y = 0
 var i = 0
 var kspeed = 1
@@ -19,8 +22,8 @@ func spawn():
 	var pipe_scene = load("res://scenes/game/entities/blocks_new.tscn")
 	var new_pipe = pipe_scene.instantiate()
 	var new_y = previous_pipe_y + randf_range(-vertical_interval_max, vertical_interval_max)
-	new_y = min(%Floor.position.y-100, new_y)
-	new_y = max(%Roof.position.y+700, new_y)
+	new_y = min(%Floor.position.y + floor_offset, new_y)
+	new_y = max(%Roof.position.y + roof_offset, new_y)
 	
 	new_pipe.position.y = new_y
 	new_pipe.speed = spawn_speed * kspeed
