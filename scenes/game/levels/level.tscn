@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwqhucdjsst14"]
+[gd_scene load_steps=8 format=3 uid="uid://cwqhucdjsst14"]
 
+[ext_resource type="Script" path="res://scenes/game/levels/level.gd" id="1_aj8k3"]
 [ext_resource type="Texture2D" uid="uid://djbcabvr4ojql" path="res://assets/background.png" id="1_t2d5r"]
 [ext_resource type="Texture2D" uid="uid://d2x1n5vrj5ayq" path="res://meme.jpeg" id="3_1t3gq"]
 [ext_resource type="Script" path="res://scenes/game/entities/Spawner.gd" id="3_kq1a1"]
@@ -9,9 +10,10 @@
 size = Vector2(1165, 126)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnmsg"]
-size = Vector2(163, 659.5)
+size = Vector2(163, 1096)
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_aj8k3")
 
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
@@ -20,7 +22,7 @@ texture = ExtResource("1_t2d5r")
 [node name="Floor" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
 visible = false
-position = Vector2(1, 299)
+position = Vector2(587, 1035)
 collision_layer = 2
 metadata/_edit_group_ = true
 
@@ -35,7 +37,7 @@ shape = SubResource("RectangleShape2D_4au21")
 
 [node name="Roof" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(3, -1186.37)
+position = Vector2(587, -383)
 collision_layer = 4
 metadata/_edit_group_ = true
 
@@ -49,7 +51,7 @@ position = Vector2(0.5, 64)
 shape = SubResource("RectangleShape2D_4au21")
 
 [node name="Spawner" type="Marker2D" parent="."]
-position = Vector2(2200, -200)
+position = Vector2(2200, 540)
 script = ExtResource("3_kq1a1")
 
 [node name="PipeCleaner" type="Area2D" parent="."]
@@ -58,7 +60,7 @@ collision_mask = 2
 script = ExtResource("4_7mkwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PipeCleaner"]
-position = Vector2(-775, -26)
+position = Vector2(-775, 545)
 shape = SubResource("RectangleShape2D_tnmsg")
 
 [connection signal="body_entered" from="PipeCleaner" to="PipeCleaner" method="_on_body_entered"]

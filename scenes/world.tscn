@@ -1,23 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxp7ypspbbssj"]
+[gd_scene load_steps=6 format=3 uid="uid://cxp7ypspbbssj"]
 
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_jquaw"]
 [ext_resource type="PackedScene" uid="uid://drsbxtif50n3q" path="res://scenes/game/player/player.tscn" id="1_yp5pi"]
 [ext_resource type="PackedScene" uid="uid://cwqhucdjsst14" path="res://scenes/game/levels/level.tscn" id="2_cjksc"]
 [ext_resource type="PackedScene" uid="uid://d22ko2lgnkh0u" path="res://scenes/game/levels/bgp.tscn" id="3_k7nss"]
 [ext_resource type="PackedScene" uid="uid://dpxles7kbwonw" path="res://scenes/game/ui/UI.tscn" id="4_4e0on"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_jquaw")
 
 [node name="Player" parent="." instance=ExtResource("1_yp5pi")]
 position = Vector2(316, 590)
 scale = Vector2(1.75, 1.75)
 
 [node name="Level" parent="." instance=ExtResource("2_cjksc")]
-position = Vector2(580, 746)
 
 [node name="bg" parent="." instance=ExtResource("3_k7nss")]
 
 [node name="Ui" parent="." instance=ExtResource("4_4e0on")]
-offset_left = 840.0
-offset_top = 345.0
-offset_right = 840.0
-offset_bottom = 345.0
+offset_left = 960.0
+offset_top = 200.0
+offset_right = 960.0
+offset_bottom = 200.0
+scale = Vector2(2, 1)
+
+[connection signal="mode_changed" from="." to="." method="_on_mode_changed"]
+[connection signal="mode_changed" from="." to="Player" method="_on_world_mode_changed"]
+[connection signal="mode_changed" from="." to="Level" method="_on_world_mode_changed"]
+[connection signal="mode_changed" from="." to="bg" method="_on_world_mode_changed"]
+[connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]

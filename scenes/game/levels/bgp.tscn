@@ -9,6 +9,7 @@
 [sub_resource type="GDScript" id="GDScript_xdq75"]
 script/source = "extends ParallaxBackground
 
+var is_active = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +18,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	scroll_offset.x -= 100*delta
+	if is_active:
+		scroll_offset.x -= 100*delta
+
+
+func _on_world_mode_changed():
+	var world = get_parent()
+	match world.cur_mode:
+		world.MODES.MENU:
+			is_active = true
+		world.MODES.INGAME:
+			is_active = true
+		world.MODES.DEATH:
+			is_active = false
 "
 
 [node name="bg" type="ParallaxBackground"]
