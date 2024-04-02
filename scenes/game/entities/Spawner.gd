@@ -22,13 +22,9 @@ func _ready():
 func spawn():
 	var pipe_scene = load("res://scenes/game/entities/blocks_new.tscn")
 	var new_pipe = pipe_scene.instantiate()
-	var new_y
-	#var new_y = randf_range(-vertical_interval_max, vertical_interval_max)
+	var new_y = randf_range(-vertical_interval_max, vertical_interval_max)
 	#var new_y = %Floor.position.y + floor_offset
-	if i % 2 == 0:
-		new_y = %Roof.position.y + roof_offset
-	else:
-		new_y = %Floor.position.y + floor_offset
+
 	print("OLD:", new_y)
 	"""
 	if previous_pipe_y not in [%Roof.position.y, %Floor.position.y]:
@@ -36,8 +32,8 @@ func spawn():
 	else:
 		new_y = 540 + randf_range(-vertical_interval_max, vertical_interval_max)"""
 
-	#new_y = min(%Floor.position.y + floor_offset, new_y)
-	#new_y = max(%Roof.position.y + roof_offset, new_y)
+	new_y = min(%Floor.position.y + floor_offset, new_y)
+	new_y = max(%Roof.position.y + roof_offset, new_y)
 
 	print("NEW:", new_y)
 
