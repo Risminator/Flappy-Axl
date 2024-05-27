@@ -30,7 +30,7 @@ func _physics_process(delta):
 				rotation_degrees += ROTATION_SPEED
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_active:
+	if Input.is_action_just_pressed("jump") and is_active:
 		jump()
 		
 	move_and_slide()
@@ -52,3 +52,7 @@ func _on_world_mode_changed():
 			jump()
 		world.MODES.DEATH:
 			is_active = false
+
+
+func _on_player_dead():
+	velocity.y = 500

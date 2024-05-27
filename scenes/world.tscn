@@ -24,6 +24,34 @@ offset_right = 960.0
 offset_bottom = 200.0
 scale = Vector2(2, 1)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -213.0
+offset_top = 24.0
+offset_right = 213.0
+offset_bottom = 79.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Press Space to Restart"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -213.0
+offset_top = 24.0
+offset_right = 213.0
+offset_bottom = 79.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Press Space to Start"
+horizontal_alignment = 1
+
 [connection signal="mode_changed" from="." to="." method="_on_mode_changed"]
 [connection signal="mode_changed" from="." to="Player" method="_on_world_mode_changed"]
 [connection signal="mode_changed" from="." to="Level" method="_on_world_mode_changed"]
