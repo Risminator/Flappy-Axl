@@ -16,7 +16,8 @@ var ktime = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(%Floor.position.y + floor_offset, %Roof.position.y + roof_offset)
+	pass
+	#print(%Floor.position.y + floor_offset, %Roof.position.y + roof_offset)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func spawn():
@@ -25,7 +26,7 @@ func spawn():
 	var new_y = randf_range(-vertical_interval_max, vertical_interval_max)
 	#var new_y = %Floor.position.y + floor_offset
 
-	print("OLD:", new_y)
+	#print("OLD:", new_y)
 	"""
 	if previous_pipe_y not in [%Roof.position.y, %Floor.position.y]:
 		new_y = previous_pipe_y + randf_range(-vertical_interval_max, vertical_interval_max)
@@ -35,7 +36,7 @@ func spawn():
 	new_y = min(%Floor.position.y + floor_offset, new_y)
 	new_y = max(%Roof.position.y + roof_offset, new_y)
 
-	print("NEW:", new_y)
+	#print("NEW:", new_y)
 
 	new_pipe.position.y = new_y
 	new_pipe.speed = spawn_speed * kspeed

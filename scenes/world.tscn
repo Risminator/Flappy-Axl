@@ -37,7 +37,8 @@ offset_right = 213.0
 offset_bottom = 79.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
-text = "Press Space to Restart"
+text = "Press Space or LMB to Restart"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
@@ -49,7 +50,7 @@ offset_right = 213.0
 offset_bottom = 79.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
-text = "Press Space to Start"
+text = "Press Space or LMB to Start"
 horizontal_alignment = 1
 
 [connection signal="mode_changed" from="." to="." method="_on_mode_changed"]

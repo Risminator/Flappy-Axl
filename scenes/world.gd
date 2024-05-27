@@ -17,7 +17,7 @@ var player = preload("res://scenes/game/player/player.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("jump"):
 		match cur_mode:
 			MODES.MENU:
 				cur_mode = MODES.INGAME
@@ -26,8 +26,6 @@ func _process(delta):
 			MODES.DEATH:
 				cur_mode = MODES.MENU
 				mode_changed.emit()
-				
-	print(cur_mode)
 
 
 func _on_player_player_dead():
