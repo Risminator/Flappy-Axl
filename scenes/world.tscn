@@ -17,13 +17,6 @@ scale = Vector2(1.75, 1.75)
 
 [node name="bg" parent="." instance=ExtResource("3_k7nss")]
 
-[node name="Ui" parent="." instance=ExtResource("4_4e0on")]
-offset_left = 960.0
-offset_top = 200.0
-offset_right = 960.0
-offset_bottom = 200.0
-scale = Vector2(2, 1)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
@@ -52,6 +45,13 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "Press Space or LMB to Start"
 horizontal_alignment = 1
+
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("4_4e0on")]
+offset_left = 960.0
+offset_top = 200.0
+offset_right = 960.0
+offset_bottom = 200.0
+scale = Vector2(2, 1)
 
 [connection signal="mode_changed" from="." to="." method="_on_mode_changed"]
 [connection signal="mode_changed" from="." to="Player" method="_on_world_mode_changed"]
